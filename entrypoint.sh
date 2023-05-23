@@ -17,10 +17,10 @@ deprecation_message=""
 
 subscription_key_file_paths=("/etc/passbolt/subscription_key.txt" "/etc/passbolt/license")
 
-source $(dirname $0)/../passbolt/entrypoint-rootless.sh
-source $(dirname $0)/../passbolt/entropy.sh
-source $(dirname $0)/../passbolt/env.sh
-source $(dirname $0)/../passbolt/deprecated_paths.sh
+source /passbolt/entrypoint-rootless.sh
+source /passbolt/entropy.sh
+source /passbolt/env.sh
+source /passbolt/deprecated_paths.sh
 
 manage_docker_env
 
