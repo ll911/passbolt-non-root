@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-if [[ $UID -ge 10000 ]]; then
+if [[ $(id -u) -ge 10000 ]]; then
+    UID=$(id -u)
     GID=$(id -g)
-    sed -e "s/^www-data:x:[^:]*:[^:]*:/www-data:x:$UID:$GID:/" /etc/passwd > /tmp/passwd
+    sed -e "s/^www-data:x:[^:]*:[^:]*:/www-data:x:$UID:$UID:/" /etc/passwd > /tmp/passwd
     cat /tmp/passwd > /etc/passwd
     rm /tmp/passwd
 fi
