@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 
-if [[ $(id -u) -ge 10000 ]]; then
-    UID=$(id -u)
-    GID=$(id -g)
-    sed -e "s/^www-data:x:[^:]*:[^:]*:/www-data:x:$UID:$UID:/" /etc/passwd > /tmp/passwd
-    cat /tmp/passwd > /etc/passwd
-    rm /tmp/passwd
-fi
+sed -e "s/^www-data:x:[^:]*:[^:]*:/www-data:x:$(id -u):$(id -u):/" /etc/passwd > /tmp/passwd
+cat /tmp/passwd > /etc/passwd
+rm /tmp/passwd
 
 set -eo pipefail
 
