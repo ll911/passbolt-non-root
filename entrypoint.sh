@@ -7,8 +7,8 @@ rm /tmp/passwd
 set -eo pipefail
 
 passbolt_config="/etc/passbolt"
-gpg_private_key="/etc/passbolt/gpg/serverkey_private.asc"
-gpg_public_key="/etc/passbolt/gpg/serverkey.asc"
+gpg_private_key="${PASSBOLT_GPG_SERVER_KEY_PRIVATE:-$passbolt_config/gpg/serverkey_private.asc}"
+gpg_public_key="${PASSBOLT_GPG_SERVER_KEY_PUBLIC:-$passbolt_config/gpg/serverkey.asc}"
 ssl_key="/etc/passbolt/certs/certificate.key"
 ssl_cert="/etc/passbolt/certs/certificate.crt"
 
