@@ -10,6 +10,11 @@ redisDependencyEnabled: true
 
 # Configure redis dependency chart
 redis:
+  #disable SCC when SCC already set at cluster level
+  podSecurityContext:
+    enabled: false
+  containerSecurityContext:
+    enabled: false
   master:
     persistence:
       size: 1Gi
@@ -31,6 +36,11 @@ redis:
 mariadbDependencyEnabled: true
 # Configure mariadb as a dependency chart
 mariadb:
+  #disable SCC when SCC already set at cluster level
+  podSecurityContext:
+    enabled: false
+  containerSecurityContext:
+    enabled: false
   # -- Configure mariadb architecture
   architecture: replication
   auth:
@@ -282,8 +292,9 @@ serviceAccount:
 podAnnotations: {}
 
 # -- Security Context configuration for passbolt server pod
+# disable SCC when SCC already set at cluster level
 podSecurityContext:
-  {}
+  enabled: false
   # fsGroup: 2000
 
 service:
