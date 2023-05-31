@@ -12,6 +12,7 @@ gpg_public_key="${PASSBOLT_GPG_SERVER_KEY_PUBLIC:-$passbolt_config/gpg/serverkey
 ssl_key="/etc/passbolt/certs/certificate.key"
 ssl_cert="/etc/passbolt/certs/certificate.crt"
 
+subscription_key_file_paths=("/etc/passbolt/subscription_key.txt" "/etc/passbolt/license")
 source /passbolt/entrypoint-rootless.sh
 source /passbolt/entropy.sh
 source /passbolt/env.sh
